@@ -16,7 +16,7 @@ public class ConcreteResturantBill implements ResturantBill {
         int pizzaCounter = 0;
         double cheaperPizza = 0;
         if(itemsOrdered.size()>20) {
-            throw new RestaurantBillException("Sono stati ordinati almeno 20 elementi "+itemsOrdered.size());
+            throw new RestaurantBillException("Sono stati ordinati almeno 20 elementi");
         }
         for(MenuItem item : itemsOrdered) {
             result += item.getPrice();
