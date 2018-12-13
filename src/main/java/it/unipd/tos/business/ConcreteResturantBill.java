@@ -15,6 +15,9 @@ public class ConcreteResturantBill implements ResturantBill {
         double result = 0;
         int pizzaCounter = 0;
         double cheaperPizza = 0;
+        if(itemsOrdered.size()>20) {
+            throw new RestaurantBillException("Sono stati ordinati almeno 20 elementi "+itemsOrdered.size());
+        }
         for(MenuItem item : itemsOrdered) {
             result += item.getPrice();
             if(item.getType() == MenuItem.TypeElement.Pizza) {
@@ -29,8 +32,7 @@ public class ConcreteResturantBill implements ResturantBill {
         }
         if(pizzaCounter >= 10) {
             result-=cheaperPizza;
-        }
-        
+        }        
         if(result >= 100 )
         {
             result-=result*0.05;

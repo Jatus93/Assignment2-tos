@@ -53,6 +53,7 @@ public class ConcreteResturantBillTest extends ConcreteResturantBill {
         order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Margherita",4.50));
         order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
         order.add(new MenuItem(MenuItem.TypeElement.Primo,"Carbonara",7.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Norma",15.00));
         order.add(new MenuItem(MenuItem.TypeElement.Primo,"Amatriciana",7.00));
         order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Margherita",4.50));
         order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
@@ -63,14 +64,48 @@ public class ConcreteResturantBillTest extends ConcreteResturantBill {
         order.add(new MenuItem(MenuItem.TypeElement.Primo,"Carbonara",7.00));
         order.add(new MenuItem(MenuItem.TypeElement.Primo,"Amatriciana",7.00));
         order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Margherita",4.50));
-        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
-        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Carbonara",7.00));
-        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Amatriciana",7.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"QuattroFormaggi",8.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"QuattroStagioni",7.00));
+        assertEquals(121.6, bill.getOrderPrice(order),0);
+    }
+    
+    @Test
+    public void testGetOrerPriceError() throws RestaurantBillException{
+        List<MenuItem> order = new ArrayList<MenuItem>();
         order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Margherita",4.50));
         order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
-        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Carbonara",7.00));
-        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Amatriciana",7.00));
-        assertEquals(135.375, bill.getOrderPrice(order),0);
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        try{
+            bill.getOrderPrice(order);
+            fail("Ecceccione non lanciata");
+        }catch(RestaurantBillException e) {
+            assertEquals("Sono stati ordinati almeno 20 elementi "+order.size(), e.getMessage());
+        }
     }
 
 }
