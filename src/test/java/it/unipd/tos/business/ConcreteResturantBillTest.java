@@ -14,10 +14,10 @@ import it.unipd.tos.business.exception.RestaurantBillException;
 import it.unipd.tos.model.MenuItem;
 
 public class ConcreteResturantBillTest extends ConcreteResturantBill {
-    
+
     private ConcreteResturantBill bill = new ConcreteResturantBill();
-    
-    
+
+
     @Test
     public void testGetOrderPriceBasic() throws RestaurantBillException {
         List<MenuItem> order = new ArrayList<MenuItem>();
@@ -42,6 +42,35 @@ public class ConcreteResturantBillTest extends ConcreteResturantBill {
         order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Margherita",4.50));
         order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
         assertEquals(62,bill.getOrderPrice(order),0);
+    }
+    @Test
+    public void testGetOrerPriceDiscountOnTotal() throws RestaurantBillException{
+        List<MenuItem> order = new ArrayList<MenuItem>();
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Margherita",4.50));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Carbonara",7.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Amatriciana",7.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Margherita",4.50));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Carbonara",7.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Amatriciana",7.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Margherita",4.50));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Carbonara",7.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Amatriciana",7.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Margherita",4.50));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Carbonara",7.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Amatriciana",7.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Margherita",4.50));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Carbonara",7.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Amatriciana",7.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Margherita",4.50));
+        order.add(new MenuItem(MenuItem.TypeElement.Pizza,"Diavola",6.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Carbonara",7.00));
+        order.add(new MenuItem(MenuItem.TypeElement.Primo,"Amatriciana",7.00));
+        assertEquals(135.375, bill.getOrderPrice(order),0);
     }
 
 }

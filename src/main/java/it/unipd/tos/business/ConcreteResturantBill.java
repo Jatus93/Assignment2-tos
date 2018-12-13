@@ -30,6 +30,11 @@ public class ConcreteResturantBill implements ResturantBill {
         if(pizzaCounter >= 10) {
             result-=cheaperPizza;
         }
+        
+        if(result >= 100 )
+        {
+            result-=result*0.05;
+        }
         return result;
     }
 
