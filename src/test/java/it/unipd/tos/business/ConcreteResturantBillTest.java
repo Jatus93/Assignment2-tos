@@ -14,7 +14,7 @@ import org.junit.rules.ExpectedException;
 import it.unipd.tos.business.exception.RestaurantBillException;
 import it.unipd.tos.model.MenuItem;
 
-public class ConcreteResturantBillTest extends ConcreteResturantBill {
+public class ConcreteResturantBillTest{
 
     private ConcreteResturantBill bill = new ConcreteResturantBill();
 
